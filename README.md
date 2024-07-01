@@ -3,3 +3,5 @@ This repo contains executable code to recreate the experimental results presente
 Published in _______ Journal
 
 The implementation code is in Python 3.9 and models are trained in PyTorch 1.13.0
+
+Firmware Data should be downloaded from https://drive.google.com/drive/folders/1JZeTtAjk6uECuleqBF_LyAzPZNmPytQ4?usp=sharing and placed in the ./Data folder
