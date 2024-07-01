@@ -98,13 +98,13 @@ for nT in range(nTrials):
 	Thresh = np.percentile(rec_error, 100*(1-FPR))
 	Thresh_latent = np.percentile(np.linalg.norm(z_mean, axis=1), 100*(1-FPR))
 	
-	# Computing the decision variables with Clipped latent variables during inference
+	# Computing the decision variables during inference
 	clipVal = 2.0
 	recon_m1, rec_error_m1, z_mean_m1, z_logvar_m1 = utvae.ext_outputs(exp_main=exp_main, data=Mal1_DS, labels=Mal1_DS_Label, clip=clipVal)
 	recon_m2, rec_error_m2, z_mean_m2, z_logvar_m2 = utvae.ext_outputs(exp_main=exp_main, data=Mal2_DS, labels=Mal2_DS_Label, clip=clipVal)
 	recon_m3, rec_error_m3, z_mean_m3, z_logvar_m3 = utvae.ext_outputs(exp_main=exp_main, data=Mal3_DS, labels=Mal3_DS_Label, clip=clipVal)
 	
-	#-----------------Accuracy for each class withing Mal1 2 and 3 WRT Recon and Latent Distribution----------------
+	#-----------------Accuracy for each class within Mal1 2 and 3 WRT Recon and Latent Distribution----------------
 	Acc_Recon_Mal1 = utf.acc_per_class(rec_error_m1, Mal1_DS_Label, Thresh)     # biased accuracy
 	Acc_Recon_Mal2 = utf.acc_per_class(rec_error_m2, Mal2_DS_Label, Thresh)
 	Acc_Recon_Mal3 = utf.acc_per_class(rec_error_m3, Mal3_DS_Label, Thresh)
